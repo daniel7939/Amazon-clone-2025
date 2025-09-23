@@ -2,20 +2,21 @@ import React from "react";
 import styles from "./Header.module.css";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { SlLocationPin } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <header className={styles.header}>
       {/* Logo */}
       <div className={styles.logo}>
-        <img
+      <Link to="/">  <img
           src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
           alt="Amazon Logo"
-        />
+        /></Link>
         <span>
             <SlLocationPin/>
         </span>
-        <div>
+        <div className={styles.deliver}>
             <p>Delivered to</p>
             <span>Ethiopia</span>
         </div>
@@ -45,17 +46,19 @@ function Header() {
         </select>
         </a>
         <div className={styles.account}>
-          <span>Sign in</span>
+          <span>Hello, Sign in</span>
           <strong>Account & Lists</strong>
         </div>
-        <div className={styles.orders}>
+        <Link to="/orders" className={styles.orders}>
+          
           <span>Returns</span>
           <strong>& Orders</strong>
-        </div>
-        <div className={styles.cart}>
+        
+        </Link>
+        <Link to="/cart" className={styles.cart}>
           <FaShoppingCart size={24} />
           <span className={styles.cartCount}>0</span>
-        </div>
+        </Link>
       </div>
     </header>
   );

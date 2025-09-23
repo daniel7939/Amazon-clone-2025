@@ -1,0 +1,16 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    }
+    :root{
+        --primary-color: #f0c14b;
+        --primary-shade: #ddb347;
+        --secondary-color: #131921;
+        --light-color: #ffffff;
+        --light-shade: #e7e7e7;
+        --dark-color: #232f3e;
+        --dark-shade: #37475a;
+        --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }

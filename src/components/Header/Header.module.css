@@ -23,11 +23,16 @@
   cursor: pointer;
 }
 
-/* .logo:hover {
+.logo img:hover {
+  border: 1px solid white;
+  /* padding: 1.5px;
+  border-radius: 3px; */
+}
+.logo .deliver:hover {
   border: 1px solid white;
   padding: 2px;
   border-radius: 3px;
-} */
+}
 
 .logo img {
   width: 100px;

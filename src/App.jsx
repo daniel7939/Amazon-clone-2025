@@ -1,13 +1,12 @@
-import Header from "./components/Header/Header";
-import LowerHeader from "./components/Header/Lowerheader";
+import React from 'react'
+import Routing from './Router'
 
 function App() {
   return (
-    <>
-      <Header />
-      <LowerHeader />
-    </>
-  );
+    <div>
+      <Routing/>
+    </div>
+  )
 }
 
-export default App;
+export default App

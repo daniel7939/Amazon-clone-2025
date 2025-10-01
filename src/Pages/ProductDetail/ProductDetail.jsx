@@ -24,13 +24,17 @@ function ProductDetail() {
     };
 
     fetchProduct();
-  }, [productId]); // ✅ dependency added
+  }, []); // ✅ dependency added
 
   return (
     <LayOut>
       {loading && <p>Loading product...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {product && <ProductCard Product={product} />}
+      {product && <ProductCard Product={product} 
+            flex={true}
+            renderDesc={true}
+
+      />}
     </LayOut>
   );
 }

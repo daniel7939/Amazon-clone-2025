@@ -1,12 +1,19 @@
-import React from "react";
+import React ,{useContext} from "react";
 import styles from "./Header.module.css";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { SlLocationPin } from "react-icons/sl";
 import { Link } from "react-router-dom";
+import { DataContext } from "../Dataprovider/Dataprovider";
 
 function Header() {
+  const [{ basket },dispatch]=useContext(DataContext);
+  const totalItems = basket?.reduce((quantity, item) => {
+    return item.quantity + quantity 
+  }, 0);
+  
+
   return (
-    <header className={styles.header}>
+    <header className={styles.header }>
       {/* Logo */}
       <div className={styles.logo}>
       <Link to="/">  <img
@@ -57,7 +64,7 @@ function Header() {
         </Link>
         <Link to="/cart" className={styles.cart}>
           <FaShoppingCart size={24} />
-          <span className={styles.cartCount}>0</span>
+          <span className={styles.cartCount}>{totalItems}</span>
         </Link>
       </div>
     </header>

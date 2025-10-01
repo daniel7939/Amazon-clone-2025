@@ -4,7 +4,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 
 function LowerHeader() {
   return (
-    <nav className={styles.lowerHeader}>
+    <nav className={styles.lowerHeader }>
       <ul>
         <li>
           <AiOutlineMenu/>

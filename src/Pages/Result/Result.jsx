@@ -37,6 +37,8 @@ function Result() {
               <ProductCard
                 key={product.id}
                 Product={product}
+                renderDesc={true}
+                renderAdd={true}
               />
             ))}
           </div>

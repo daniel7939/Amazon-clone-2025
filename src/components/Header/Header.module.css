@@ -227,6 +227,16 @@ border: 1px solid white;
     font-size: 12px;
   }
 }
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.lowerHeader{
+  position: sticky;
+  top: 60px;
+  z-index: 100;
+}
 
 @media (max-width: 480px) {
   .rightSection {

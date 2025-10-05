@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+  "dev": "vite",
     "build": "vite build",
+  "mock-server": "node mock-payments-server.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -13,15 +14,21 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^7.3.2",
+    "@stripe/react-stripe-js": "^5.0.0",
+    "@stripe/stripe-js": "^8.0.0",
     "axios": "^1.12.2",
+    "firebase": "^12.3.0",
     "numeral": "^2.0.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-icons": "^5.5.0",
     "react-responsive-carousel": "^3.2.23",
-    "react-router-dom": "^7.9.1"
+    "react-router-dom": "^7.9.1",
+    "react-spinners": "^0.17.0"
   },
   "devDependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
     "@eslint/js": "^9.33.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",

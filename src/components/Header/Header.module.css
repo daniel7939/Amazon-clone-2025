@@ -121,6 +121,14 @@
   border: none;
   outline: none;
 }
+.accountLink{
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 3px;
+}
 
 .account,
 .orders {
@@ -136,9 +144,7 @@
 {
   border: 1px solid white;
 }
-.account strong:hover{
-border: 1px solid white;
-}
+
 .orders:hover,
 .cart:hover {
   border: 1px solid white;
@@ -238,6 +244,7 @@ border: 1px solid white;
   z-index: 100;
 }
 
+
 @media (max-width: 480px) {
   .rightSection {
     gap: 5px;
@@ -257,4 +264,10 @@ border: 1px solid white;
   .searchBar select {
     display: none; /* hide category dropdown on very small screens */
   }
+  .lowerHeader{
+  position: sticky;
+  top: 150px;
+  z-index: 100;
+}
+
 }

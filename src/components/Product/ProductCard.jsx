@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { DataContext } from '../../components/Dataprovider/Dataprovider';
 
-function ProductCard({Product,flex,renderDesc,renderAdd}) {
-        const {title, price, rating, image,id} = Product;
-        const [state,dispatch]=useContext(DataContext); 
+function ProductCard({Product, product, flex, renderDesc, renderAdd}) {
+    // support both `Product` and `product` prop names and guard for undefined
+    const prod = Product || product || {};
+    const { title, price, rating = { rate: 0, count: 0 }, image, id } = prod;
+    const [state, dispatch] = useContext(DataContext);
         console.log(state);
         const addtoCart = () => {
             dispatch({
@@ -27,9 +29,9 @@ function ProductCard({Product,flex,renderDesc,renderAdd}) {
                     {/* {renderDesc && <p style={{maxWidth:"750px"}}>{Product.description}</p>} */}
 
                     <div className={classes.ratings}>
-                        <Rating value={rating.rate} precision={0.5} />
+                        <Rating value={rating?.rate || 0} precision={0.5} />
                         <small>
-                            {rating.count}
+                            {rating?.count || 0}
                         </small>
                     </div>
                     <div>

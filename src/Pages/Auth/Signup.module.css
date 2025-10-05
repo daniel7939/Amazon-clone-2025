@@ -1,0 +1,77 @@
+.authContainer{
+    height: 100vh;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.authContainer img{
+    width: 100px;
+    margin: 30px auto;
+    object-fit: contain;
+
+}
+.formContainer{
+    
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(193, 193, 193);
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+.formContainer h1{
+    margin: 20px 0px;
+    font-size: 25px;
+}
+.formContainer form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.formContainer form div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.formContainer form input{
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    background-color: white;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+.formContainer form input:focus{
+    outline: 2px solid #f90;
+}
+.signInButton{
+    background-color: #f0c14b;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+.formContainer p{
+    font-size: 12px;
+    margin-top: 15px;
+}
+.createAccountButton{
+    background-color: #e7e9ec;
+    border: 1px solid;
+    margin-top: 20px;
+    border-color: black;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+.createAccountButton:hover, .signInButton:hover{
+    background-color: #f3a847;
+}
+.error{
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}

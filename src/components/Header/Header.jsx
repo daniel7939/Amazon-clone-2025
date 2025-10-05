@@ -4,9 +4,10 @@ import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { SlLocationPin } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import { DataContext } from "../Dataprovider/Dataprovider";
+import { auth } from "../../Utility/fairbase";
 
 function Header() {
-  const [{ basket },dispatch]=useContext(DataContext);
+  const [{user,basket },dispatch]=useContext(DataContext);
   const totalItems = basket?.reduce((quantity, item) => {
     return item.quantity + quantity 
   }, 0);
@@ -53,8 +54,25 @@ function Header() {
         </select>
         </a>
         <div className={styles.account}>
-          <span>Hello, Sign in</span>
-          <strong>Account & Lists</strong>
+          <Link to={!user && "/auth"} className={styles.accountLink}>
+          <div>
+            { user ? (
+              <>
+              <p>Hello {user?.email?.split('@')[0]}</p>
+            <strong onClick={() => auth.signOut()}>Sign Out  </strong>
+            </>
+            ) : (
+             <>
+             <p>Hello, Sign in</p>
+              <strong>Account & Lists</strong>
+              </> 
+            )}
+          </div>
+      
+            
+            
+          </Link>
+         
         </div>
         <Link to="/orders" className={styles.orders}>
           

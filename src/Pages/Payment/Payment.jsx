@@ -7,8 +7,12 @@ import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import CurrencyFormat from '../../components/Currencyformat/CurrencyFormat';
 import axiosInstance from '../../Api/axios';
 import { ClipLoader } from 'react-spinners';
+import { db } from '../../Utility/fairbase';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
+import { Type } from '../../Utility/action.type';
 function Payment() {
-  const [{user,basket}]=React.useContext(DataContext);
+  const [{user,basket},dispatch]=React.useContext(DataContext);
   console.log(user)
    const totalItems = basket?.reduce((quantity, item) => {
     return item.quantity + quantity 
@@ -22,6 +26,7 @@ function Payment() {
   const [succeeded, setSucceeded] = React.useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
   const handlechange=(event)=>{
     console.log(event);
     setCardError(event.error ? event.error.message : "");
@@ -57,8 +62,27 @@ function Payment() {
       } else {
         console.log('Payment succeeded:', payload.paymentIntent);
         setSucceeded(true);
+        const paymentIntent = payload.paymentIntent;
+        // write order to Firestore using modular API
+        try {
+          if (user?.uid) {
+            const orderRef = doc(db, 'users', user.uid, 'orders', paymentIntent.id);
+            await setDoc(orderRef, {
+              basket: basket,
+              amount: total,
+              createdAt: serverTimestamp(),
+            });
+          } else {
+            console.warn('No user available - skipping Firestore write for order', paymentIntent.id);
+          }
+          dispatch({ type: Type.EMPTY_BASKET });
+        } catch (e) {
+          console.error('Failed to write order to Firestore:', e);
+        }
+
         setProcessing(false);
       }
+      navigate('/orders');
       
     } catch (error) {
       console.error('Payment request failed:', error?.response?.data || error.message || error);

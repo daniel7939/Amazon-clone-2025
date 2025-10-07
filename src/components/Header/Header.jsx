@@ -21,17 +21,19 @@ function Header() {
           src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
           alt="Amazon Logo"
         /></Link>
-        <span>
-            <SlLocationPin/>
-        </span>
-        <div className={styles.deliver}>
-            <p>Delivered to</p>
-            <span>Ethiopia</span>
-        </div>
+      
+     <div className={styles.deliverBox}>
+  <span className={styles.icon}>
+    <SlLocationPin />
+  </span>
+  <div className={styles.deliver}>
+    <p>Deliver to</p>
+    <span>Ethiopia</span>
+  </div>
+</div>
+
       </div>
-      <div>
-        
-      </div>
+ 
 
       {/* Search Bar */}
       <div className={styles.searchBar}>

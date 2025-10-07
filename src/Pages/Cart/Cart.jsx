@@ -29,7 +29,7 @@ function Cart() {
     <LayOut>
       <section className={styles.cart_section}>
   <div className={styles.cart_left}>
-          <h1>Hello{user ? `, ${user}` : ''}</h1>
+          <h1>Hello</h1>
           <h3>Your Shopping Basket</h3>
           <hr />
           {basket?.length === 0 ? (

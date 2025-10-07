@@ -1,6 +1,6 @@
 import React,{useState,useContext} from 'react'
 import styles from './Signup.module.css'
-import { Link, Navigate, useNavigate} from 'react-router-dom'
+import { Link, Navigate, useNavigate,useLocation} from 'react-router-dom'
 import {auth} from '../../Utility/fairbase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
@@ -16,7 +16,8 @@ function Auth() {
   const [signUp,setSignUp] = useState(false)
   const [{user},dispatch]= useContext(DataContext)
   const navigate = useNavigate();
-  console.log(user);
+  const navStateData=useLocation();
+  console.log(user,navStateData);
   const authHandler = (e) => {
     e.preventDefault();
     setError("");
@@ -26,7 +27,7 @@ function Auth() {
         .then((userinfo) => {
           setLoadingSignIn(false);
           dispatch({ type: "SET_USER", user: userinfo.user });
-          navigate("/")
+          navigate(navStateData?.state?.redirect || "/")
         })
         .catch((err) => {
           setError(err.message);
@@ -39,7 +40,7 @@ function Auth() {
         .then((userinfo) => {
           setLoadingSignUp(false);
           dispatch({ type: "SET_USER", user: userinfo.user });
-           navigate("/")
+          navigate(navStateData?.state?.redirect || "/")
         })
         .catch((err) => {
           setError(err.message);
@@ -59,6 +60,10 @@ function Auth() {
 {/* form */}
 <div className={styles.formContainer}>
   <h1>Sign-In</h1>
+  {navStateData?.state?.msg &&
+   <p className={styles.error}>
+    {navStateData.state.msg}</p>}
+ 
   <form action="">
     <h5>Email</h5>
     <input onChange={(e) => setEmail(e.target.value)} type="text" />

@@ -1,0 +1,218 @@
+/* 🌟 Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 📦 Orders Section */
+.order_section {
+  width: 100%;
+  padding: 30px 15px;
+  background: #f6f7f8;
+  display: flex;
+  justify-content: center;
+}
+
+/* 🧾 Orders Container */
+.order_container {
+  width: 95%;
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px 25px;
+}
+
+/* 🏷️ Header */
+.order_container h2 {
+  border-bottom: 2px solid #f0c14b;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #111;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* 🧩 Each Order Card */
+.order_card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  transition: all 0.2s ease;
+}
+
+.order_card:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* 🆔 Order ID */
+.order_id {
+  display: block;
+  font-weight: 600;
+  color: #007185;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+/* 💵 Total Section */
+.order_total {
+  text-align: right;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #111;
+  font-size: 16px;
+}
+
+/* 📦 Product Card inside Orders */
+/* 🧾 Product Card inside Order */
+.order_card .product_card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid #eee;
+  padding: 12px 0;
+  margin-top: 10px;
+  transition: background 0.2s ease;
+}
+
+.order_card .product_card:hover {
+  background-color: #fafafa;
+}
+
+/* 🖼️ Product Image */
+.order_card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-right: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* 🧩 Product Info */
+.order_card .product_info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.order_card .product_info p {
+  margin-bottom: 6px;
+}
+
+/* 💰 Product Price */
+.order_card .product_price {
+  font-weight: bold;
+  color: #111;
+  font-size: 15px;
+}
+
+/* 📱 Responsive Styles */
+@media (max-width: 768px) {
+  .order_card .product_card {
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .order_card img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .order_card .product_info {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .order_card .product_card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .order_card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .order_card .product_info {
+    font-size: 12px;
+  }
+
+  .order_card .product_price {
+    font-size: 13px;
+  }
+}
+
+
+
+
+.order_container p {
+  text-align: center;
+  color: #555;
+  font-size: 16px;
+  padding: 20px 0;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
+  .order_container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .order_container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .order_container h2 {
+    font-size: 20px;
+  }
+
+  .order_card {
+    padding: 15px;
+  }
+
+  .order_id {
+    font-size: 14px;
+  }
+
+  .order_total {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .order_container {
+    padding: 10px;
+  }
+
+  .order_card {
+    padding: 10px;
+  }
+
+  .order_id {
+    font-size: 13px;
+  }
+
+  .order_total {
+    font-size: 13px;
+  }
+
+  .order_container h2 {
+    font-size: 18px;
+  }
+}
